@@ -1,21 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { useFonts } from "expo-font";
+import { NavigationContainer } from "@react-navigation/native";
+import NavigationHome from "./routes/HomeStack";
+import NavigationAbout from "./routes/AboutStack";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+
+const Drawer = createDrawerNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+	const [loaded] = useFonts({
+		"source-sans-pro": require("./Assets/Fonts/SourceSansPro-Black.ttf"),
+	});
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+	if (!loaded) {
+		return null;
+	}
+
+	return (
+		<SafeAreaProvider>
+			<NavigationContainer>
+				<Drawer.Navigator
+					screenOptions={{
+						headerShown: false,
+					}}
+				>
+					<Drawer.Screen name="L-Gaming" component={NavigationHome} />
+					<Drawer.Screen name="About me" component={NavigationAbout} />
+				</Drawer.Navigator>
+			</NavigationContainer>
+		</SafeAreaProvider>
+	);
+}
