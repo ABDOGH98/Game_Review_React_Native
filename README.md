@@ -1,4 +1,4 @@
-# L-Gaming---React-Native
+# L-Gaming---React-Native - React Navigation
 
 ![1](https://user-images.githubusercontent.com/63199884/134771328-007ee1a1-430b-4133-8506-4985c11a11f4.jpg)
 ![2](https://user-images.githubusercontent.com/63199884/134771330-a1b88657-e069-4b87-a7d5-c196078be989.jpg)
